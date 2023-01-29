@@ -3,12 +3,16 @@ package com.driver.model;
 import javax.persistence.*;
 
 @Entity
-@Table
+
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(columnDefinition = "TINYINT(1)")
     private boolean paymentCompleted;
+
+    @Enumerated(EnumType.STRING)
     private PaymentMode paymentMode;
 
     @OneToMany
