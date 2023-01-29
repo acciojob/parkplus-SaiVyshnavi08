@@ -33,7 +33,7 @@ public class ReservationServiceImpl implements ReservationService {
            List<Spot> spotList = parkingLot.getSpotList();
            boolean LookForSpot = false;
            for (Spot findspot : spotList) {
-               if (!findspot.isOccupied()) {
+               if (!findspot.getOccupied()) {
                    LookForSpot = true;
                    break;
                }
@@ -56,7 +56,7 @@ public class ReservationServiceImpl implements ReservationService {
                for (Spot find : spotList) {
                    if (find.getSpotType().equals(SpotType.OTHERS)) {
                        int price = find.getPricePerHour() * timeInHours;
-                       if (find.isOccupied() == false && price < minPrice) {
+                       if (find.getOccupied() == false && price < minPrice) {
                            minPrice = price;
                            LookForSpot = true;
                            bookSpot = find;
@@ -67,7 +67,7 @@ public class ReservationServiceImpl implements ReservationService {
                for (Spot find : spotList) {
                    if (find.getSpotType().equals(SpotType.FOUR_WHEELER)) {
                        int price = find.getPricePerHour() * timeInHours;
-                       if (price < minPrice && find.isOccupied() == false) {
+                       if (price < minPrice && find.getOccupied() == false) {
                            price = minPrice;
                            LookForSpot = true;
                            bookSpot = find;
@@ -78,7 +78,7 @@ public class ReservationServiceImpl implements ReservationService {
                for (Spot find : spotList) {
                    if (find.getSpotType().equals(SpotType.TWO_WHEELER)) {
                        int price = find.getPricePerHour() * timeInHours;
-                       if (!find.isOccupied() && price < minPrice) {
+                       if (!find.getOccupied() && price < minPrice) {
                            price = minPrice;
                            LookForSpot = true;
                            bookSpot = find;
