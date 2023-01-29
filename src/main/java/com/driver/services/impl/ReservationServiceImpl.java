@@ -39,13 +39,13 @@ public class ReservationServiceImpl implements ReservationService {
                }
 
            }
-           if (LookForSpot == false) {
+           if (!LookForSpot) {
                throw new Exception("Cannot make reservation");
            }
            SpotType SetSpotType;
 
            if (numberOfWheels > 4) SetSpotType = SpotType.OTHERS;
-           else if (numberOfWheels == 4) SetSpotType = SpotType.FOUR_WHEELER;
+           else if (numberOfWheels > 2) SetSpotType = SpotType.FOUR_WHEELER;
            else SetSpotType = SpotType.TWO_WHEELER;
 
            int minPrice = Integer.MAX_VALUE;
