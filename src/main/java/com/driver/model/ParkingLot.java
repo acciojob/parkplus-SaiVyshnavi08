@@ -18,11 +18,11 @@ public class ParkingLot {
     public ParkingLot() {
     }
 
-    public List<Spot> getSpot() {
+    public List<Spot> getSpotList() {
         return spot;
     }
 
-    public void setSpot(List<Spot> spot) {
+    public void setSpotList(List<Spot> spot) {
         this.spot = spot;
     }
 
