@@ -17,8 +17,6 @@ public class User {
     public User() {
     }
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<Reservation> reservations = new ArrayList<>();
 
     public User(int id, String name, String phoneNumber, String password) {
         this.id = id;
@@ -26,6 +24,9 @@ public class User {
         PhoneNumber = phoneNumber;
         Password = password;
     }
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<Reservation> reservationList = new ArrayList<>();
+
 
     public int getId() {
         return id;
@@ -59,11 +60,11 @@ public class User {
         Password = password;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
+    public List<Reservation> getReservationList() {
+        return reservationList;
     }
 
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
     }
 }
