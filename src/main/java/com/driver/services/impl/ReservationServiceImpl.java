@@ -52,7 +52,7 @@ public class ReservationServiceImpl implements ReservationService {
            LookForSpot = false;
            Spot bookSpot = null;
 
-           if (SetSpotType.equals(SpotType.OTHERS)) {
+           if (SetSpotType.equals(SpotType.OTHERS) ) {
                for (Spot find : spotList) {
                    if (find.getSpotType().equals(SpotType.OTHERS)) {
                        int price = find.getPricePerHour() * timeInHours;
@@ -63,9 +63,9 @@ public class ReservationServiceImpl implements ReservationService {
                        }
                    }
                }
-           } else if (SetSpotType.equals(SpotType.FOUR_WHEELER)) {
+           } else if (SetSpotType.equals(SpotType.FOUR_WHEELER) ) {
                for (Spot find : spotList) {
-                   if (find.getSpotType().equals(SpotType.FOUR_WHEELER)) {
+                   if (find.getSpotType().equals(SpotType.FOUR_WHEELER) || find.getSpotType().equals(SpotType.OTHERS)) {
                        int price = find.getPricePerHour() * timeInHours;
                        if (price < minPrice && find.getOccupied() == false) {
                            price = minPrice;
@@ -76,13 +76,13 @@ public class ReservationServiceImpl implements ReservationService {
                }
            } else if (SetSpotType.equals(SpotType.TWO_WHEELER)) {
                for (Spot find : spotList) {
-                   if (find.getSpotType().equals(SpotType.TWO_WHEELER)) {
+
                        int price = find.getPricePerHour() * timeInHours;
                        if (!find.getOccupied() && price < minPrice) {
                            price = minPrice;
                            LookForSpot = true;
                            bookSpot = find;
-                       }
+
                    }
                }
            }
